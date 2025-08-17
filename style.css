@@ -254,22 +254,50 @@
 }
 
 /* ===== ANIMATION CLASSES ===== */
-.fade-in {
+/* GitHub Pages compatibility - ensure content is always visible */
+.fade-in,
+.slide-in-left,
+.slide-in-right,
+.scale-in {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    visibility: visible !important;
+}
+
+/* Content loaded fallback */
+.content-loaded .fade-in,
+.content-loaded .slide-in-left,
+.content-loaded .slide-in-right,
+.content-loaded .scale-in,
+.content-loaded .section-title,
+.content-loaded .section-subtitle,
+.content-loaded .service-card,
+.content-loaded .advantage-card,
+.content-loaded .customer-card,
+.content-loaded .vision-card {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+}
+
+/* Fallback animation classes for when JavaScript works */
+.fade-in.js-enabled {
     opacity: 0;
     animation: fadeInUp 0.8s ease-out forwards;
 }
 
-.slide-in-left {
+.slide-in-left.js-enabled {
     opacity: 0;
     animation: fadeInLeft 0.8s ease-out forwards;
 }
 
-.slide-in-right {
+.slide-in-right.js-enabled {
     opacity: 0;
     animation: fadeInRight 0.8s ease-out forwards;
 }
 
-.scale-in {
+.scale-in.js-enabled {
     opacity: 0;
     animation: scaleIn 0.6s ease-out forwards;
 }
@@ -1165,16 +1193,27 @@ body {
 /* ===== MOBILE CONTENT VISIBILITY FIX ===== */
 @media (max-width: 991.98px) {
 
-    /* Disable animations on mobile for better performance and visibility */
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-
-    /* Ensure all content is visible */
+    /* Critical: Force all content to be visible on mobile/tablets */
+    .fade-in,
+    .slide-in-left,
+    .slide-in-right,
+    .scale-in,
+    .section-title,
+    .section-subtitle,
+    .service-card,
+    .advantage-card,
+    .customer-card,
+    .vision-card,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    span,
+    div,
+    a,
     .section,
     .container,
     .row,
@@ -1182,6 +1221,18 @@ body {
     [class*="col-"] {
         opacity: 1 !important;
         visibility: visible !important;
+        transform: none !important;
+        animation: none !important;
+        transition: none !important;
+    }
+
+    /* Disable animations on mobile for better performance and visibility */
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }
 

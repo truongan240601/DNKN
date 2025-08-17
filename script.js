@@ -147,6 +147,7 @@
 
             allAnimatedElements.forEach(el => {
                 el.classList.add('visible');
+                el.classList.add('js-enabled'); // Enable animations but show immediately
                 el.style.opacity = '1';
                 el.style.transform = 'none';
 
@@ -158,12 +159,18 @@
             return; // Exit early, no need for intersection observer
         }
 
+        // For desktop, add js-enabled class to animation elements
+        const allAnimatedElements = document.querySelectorAll(
+            '.fade-in, .slide-in-left, .slide-in-right, .scale-in'
+        );
+        allAnimatedElements.forEach(el => {
+            el.classList.add('js-enabled');
+        });
+
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function (entries) {
+        }; const observer = new IntersectionObserver(function (entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
@@ -615,6 +622,9 @@
     /*==================== INITIALIZATION ====================*/
     function init() {
         try {
+            // Add js-enabled class to enable animations when JavaScript works
+            document.documentElement.classList.add('js-enabled');
+
             // Initialize elements first
             initializeElements();
 
