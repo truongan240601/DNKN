@@ -155,50 +155,6 @@
                         entry.target.classList.add('animate');
                     }
 
-                    // Add animate class for section reveals
-                    if (entry.target.classList.contains('section-reveal')) {
-                        entry.target.classList.add('animate');
-
-                        // Animate child content with delay
-                        const sectionContent = entry.target.querySelectorAll('.section-content');
-                        sectionContent.forEach((content, index) => {
-                            setTimeout(() => {
-                                content.classList.add('animate');
-                            }, (index + 1) * 200);
-                        });
-                    }
-
-                    // Add animate class for section content
-                    if (entry.target.classList.contains('section-content')) {
-                        entry.target.classList.add('animate');
-
-                        // Staggered animation for cards within this content
-                        const cards = entry.target.querySelectorAll('.card-reveal');
-                        cards.forEach((card, index) => {
-                            setTimeout(() => {
-                                card.classList.add('animate');
-                            }, index * 150);
-                        });
-
-                        // Staggered animation for stagger items
-                        const staggerItems = entry.target.querySelectorAll('.stagger-item');
-                        staggerItems.forEach((item, index) => {
-                            setTimeout(() => {
-                                item.classList.add('animate');
-                            }, index * 100);
-                        });
-                    }
-
-                    // Add animate class for individual card reveals
-                    if (entry.target.classList.contains('card-reveal')) {
-                        entry.target.classList.add('animate');
-                    }
-
-                    // Add animate class for stagger items
-                    if (entry.target.classList.contains('stagger-item')) {
-                        entry.target.classList.add('animate');
-                    }
-
                     // Animate counters if this is a stat item
                     if (entry.target.classList.contains('stat-item')) {
                         animateCounter(entry.target);
@@ -209,7 +165,7 @@
 
         // Elements to animate
         const animatedElements = document.querySelectorAll(
-            '.fade-in, .slide-in-left, .slide-in-right, .scale-in, .stat-item, .section-title, .animate-on-scroll, .section-reveal, .section-content, .card-reveal, .stagger-item, .service-card, .advantage-card, .customer-card, .vision-card'
+            '.fade-in, .slide-in-left, .slide-in-right, .scale-in, .stat-item, .section-title, .animate-on-scroll, .service-card, .advantage-card, .customer-card, .vision-card'
         );
 
         animatedElements.forEach(el => {

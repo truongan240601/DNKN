@@ -336,95 +336,6 @@
     transform: translateY(0);
 }
 
-/* Section reveal animations */
-.section-reveal {
-    opacity: 0;
-    transform: translateY(60px);
-    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.section-reveal.animate {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.section-content {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.section-content.animate {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Staggered animations for multiple elements */
-.stagger-item {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.stagger-item.animate {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Enhanced card animations */
-.card-reveal {
-    opacity: 0;
-    transform: translateY(40px) scale(0.95);
-    transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.card-reveal.animate {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-}
-
-/* Transition delay classes for staggered animations */
-.delay-100 {
-    transition-delay: 0.1s;
-}
-
-.delay-200 {
-    transition-delay: 0.2s;
-}
-
-.delay-300 {
-    transition-delay: 0.3s;
-}
-
-.delay-400 {
-    transition-delay: 0.4s;
-}
-
-.delay-500 {
-    transition-delay: 0.5s;
-}
-
-.delay-600 {
-    transition-delay: 0.6s;
-}
-
-/* Progressive reveal for section elements */
-.section-reveal .section-header {
-    transition-delay: 0.2s;
-}
-
-.section-reveal .section-content:nth-child(2) {
-    transition-delay: 0.4s;
-}
-
-.section-reveal .section-content:nth-child(3) {
-    transition-delay: 0.6s;
-}
-
-.section-reveal .section-content:nth-child(4) {
-    transition-delay: 0.8s;
-}
-
 /* ===== BASE STYLES ===== */
 * {
     margin: 0;
@@ -706,41 +617,12 @@ body {
     margin-bottom: 4rem;
 }
 
-/* Initial state for sections to be animated */
-.section-reveal:not(.animate) {
-    opacity: 0;
-    transform: translateY(60px);
-}
-
-.section-content:not(.animate) {
-    opacity: 0;
-    transform: translateY(40px);
-}
-
-.card-reveal:not(.animate) {
-    opacity: 0;
-    transform: translateY(40px) scale(0.95);
-}
-
-.stagger-item:not(.animate) {
-    opacity: 0;
-    transform: translateY(30px);
-}
-
 .section-title {
     font-size: 2.8rem;
     font-weight: var(--font-weight-bold);
     color: var(--primary-color);
     margin-bottom: 1rem;
     position: relative;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.section-title.animate {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 .section-title::after {
@@ -748,16 +630,11 @@ body {
     position: absolute;
     bottom: -10px;
     left: 50%;
-    transform: translateX(-50%) scaleX(0);
+    transform: translateX(-50%);
     width: 80px;
     height: 4px;
     background: var(--accent-color);
     border-radius: 2px;
-    transition: transform 0.6s ease-out 0.3s;
-}
-
-.section-title.animate::after {
-    transform: translateX(-50%) scaleX(1);
 }
 
 .section-subtitle {
