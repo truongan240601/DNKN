@@ -133,74 +133,29 @@
         }
     }
 
-    /*==================== SCROLL REVEAL ANIMATIONS ====================*/
+    /*==================== SCROLL REVEAL ANIMATIONS DISABLED ====================*/
     function initScrollReveal() {
-        // Check if device is mobile or has reduced motion preference
-        const isMobile = window.innerWidth <= 991;
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-        // If mobile or reduced motion, show all content immediately
-        if (isMobile || prefersReducedMotion) {
-            const allAnimatedElements = document.querySelectorAll(
-                '.fade-in, .slide-in-left, .slide-in-right, .scale-in, .stat-item, .section-title, .animate-on-scroll, .service-card, .advantage-card, .customer-card, .vision-card'
-            );
-
-            allAnimatedElements.forEach(el => {
-                el.classList.add('visible');
-                el.classList.add('js-enabled'); // Enable animations but show immediately
-                el.style.opacity = '1';
-                el.style.transform = 'none';
-
-                // Animate counters for stat items
-                if (el.classList.contains('stat-item')) {
-                    animateCounter(el);
-                }
-            });
-            return; // Exit early, no need for intersection observer
-        }
-
-        // For desktop, add js-enabled class to animation elements
+        // ALL ANIMATIONS DISABLED - Just force show all content immediately
         const allAnimatedElements = document.querySelectorAll(
-            '.fade-in, .slide-in-left, .slide-in-right, .scale-in'
+            '.fade-in, .slide-in-left, .slide-in-right, .scale-in, .stat-item, .section-title, .animate-on-scroll, .service-card, .advantage-card, .customer-card, .vision-card, h1, h2, h3, h4, h5, h6, p, span, div, a'
         );
+
         allAnimatedElements.forEach(el => {
-            el.classList.add('js-enabled');
+            el.classList.add('visible');
+            el.style.opacity = '1';
+            el.style.transform = 'none';
+            el.style.animation = 'none';
+            el.style.transition = 'none';
+            el.style.visibility = 'visible';
+
+            // Only animate counters for stat items (numbers only)
+            if (el.classList.contains('stat-item')) {
+                animateCounter(el);
+            }
         });
 
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        }; const observer = new IntersectionObserver(function (entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-
-                    // Add animate class for section titles
-                    if (entry.target.classList.contains('section-title')) {
-                        entry.target.classList.add('animate');
-                    }
-
-                    // Add animate class for elements with animate-on-scroll
-                    if (entry.target.classList.contains('animate-on-scroll')) {
-                        entry.target.classList.add('animate');
-                    }
-
-                    // Animate counters if this is a stat item
-                    if (entry.target.classList.contains('stat-item')) {
-                        animateCounter(entry.target);
-                    }
-                }
-            });
-        }, observerOptions);
-
-        // Elements to animate
-        const animatedElements = document.querySelectorAll(
-            '.fade-in, .slide-in-left, .slide-in-right, .scale-in, .stat-item, .section-title, .animate-on-scroll, .service-card, .advantage-card, .customer-card, .vision-card'
-        );
-
-        animatedElements.forEach(el => {
-            observer.observe(el);
-        });
+        // No intersection observer needed - everything is visible immediately
+        return;
     }
 
     /*==================== COUNTER ANIMATION ====================*/
@@ -642,29 +597,29 @@
             initScrollReveal();
             initScrollIndicator();
 
-            // Initialize optional features
+            // Initialize essential features only (NO ANIMATIONS)
             try {
-                initNavbarBrandAnimation();
                 initFormValidation();
                 initScrollProgressBar();
                 initAccessibility();
                 initErrorHandling();
-                initAdditionalAnimations();
+                // initNavbarBrandAnimation(); // DISABLED
+                // initAdditionalAnimations(); // DISABLED
             } catch (error) {
                 console.warn('Some optional features failed to initialize:', error);
             }
 
-            // Initialize performance-friendly features
-            if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                try {
-                    initParallaxEffect();
-                    initCardTiltEffect();
-                    initTypingEffect();
-                    initSmoothReveal();
-                } catch (error) {
-                    console.warn('Animation features failed to initialize:', error);
-                }
-            }
+            // ALL ANIMATION FEATURES DISABLED
+            // if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            //     try {
+            //         initParallaxEffect();
+            //         initCardTiltEffect();
+            //         initTypingEffect();
+            //         initSmoothReveal();
+            //     } catch (error) {
+            //         console.warn('Animation features failed to initialize:', error);
+            //     }
+            // }
 
             // Initialize lazy loading
             if ('IntersectionObserver' in window) {
