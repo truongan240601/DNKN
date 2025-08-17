@@ -4,7 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="VSEC - Công ty TNHH Doanh Nhân Khởi Nghiệp Việt Nam cung cấp giải pháp cho thuê kho bãi linh hoạt, an toàn và hiệu quả. Hơn 15 năm kinh nghiệm trong lĩnh vực logistics.">
+    <meta name="keywords" content="VSEC, cho thuê kho, logistics, kho bãi, vận chuyển, Việt Nam">
+    <meta name="author" content="VSEC - Công ty TNHH Doanh Nhân Khởi Nghiệp Việt Nam">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="VSEC - Giải pháp cho thuê kho bãi linh hoạt">
+    <meta property="og:description" content="An toàn – Hiệu quả. Hơn 15 năm kinh nghiệm trong lĩnh vực logistics.">
+    <meta property="og:image" content="./images/warehouse.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="VSEC - Giải pháp cho thuê kho bãi linh hoạt">
+    <meta property="twitter:description" content="An toàn – Hiệu quả. Hơn 15 năm kinh nghiệm trong lĩnh vực logistics.">
+
     <title>VSEC - Giải pháp cho thuê kho bãi linh hoạt – An toàn – Hiệu quả</title>
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="./style.css" as="style">
+    <link rel="preload" href="./script.js" as="script">
+    <link rel="preload" href="./images/Logo.png" as="image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -13,10 +37,27 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
+    <!-- Noscript fallback -->
+    <noscript>
+        <style>
+            .page-loader {
+                display: none !important;
+            }
+
+            .section-reveal,
+            .section-content,
+            .card-reveal,
+            .stagger-item {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        </style>
+    </noscript>
+
     <!-- Page Loader -->
     <div class="page-loader" id="pageLoader">
         <div class="loader-content">
@@ -585,7 +626,7 @@
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JS -->
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
 </body>
 
 </html>

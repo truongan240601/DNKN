@@ -1,8 +1,19 @@
 /*==================== VSEC WEBSITE JAVASCRIPT ====================*/
 /*==================== Developed for Bootstrap 5 Framework ====================*/
 
-document.addEventListener('DOMContentLoaded', function () {
+// Ensure the script runs after DOM is loaded
+(function () {
     'use strict';
+
+    // Wait for both DOM and all resources to be loaded
+    function initializeWhenReady() {
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            // DOM is already loaded
+            init();
+        }
+    }
 
     /*==================== PAGE LOADER ====================*/
     function hidePageLoader() {
@@ -18,46 +29,62 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     /*==================== VARIABLES ====================*/
-    const header = document.querySelector('.header');
-    const navLinks = document.querySelectorAll('.nav-link');
-    const scrollTopBtn = document.querySelector('.scroll-top');
-    const heroSection = document.querySelector('.hero');
+    let header, navLinks, scrollTopBtn, heroSection;
+
+    function initializeElements() {
+        header = document.querySelector('.header');
+        navLinks = document.querySelectorAll('.nav-link');
+        scrollTopBtn = document.querySelector('.scroll-top');
+        heroSection = document.querySelector('.hero');
+    }
 
     /*==================== HEADER SCROLL EFFECT ====================*/
     function handleHeaderScroll() {
-        if (window.scrollY >= 50) {
+        if (header && window.scrollY >= 50) {
             header.classList.add('scrolled');
-        } else {
+        } else if (header) {
             header.classList.remove('scrolled');
         }
     }
 
     /*==================== SMOOTH SCROLLING FOR NAVIGATION ====================*/
     function initSmoothScrolling() {
+        if (!navLinks || navLinks.length === 0) return;
+
         navLinks.forEach(link => {
             link.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
 
                 // Check if it's an internal link
-                if (href.startsWith('#')) {
+                if (href && href.startsWith('#')) {
                     e.preventDefault();
                     const targetId = href.substring(1);
                     const targetSection = document.getElementById(targetId);
 
-                    if (targetSection) {
-                        const headerHeight = header.offsetHeight;
+                    if (targetSection && header) {
+                        const headerHeight = header.offsetHeight || 80;
                         const targetPosition = targetSection.offsetTop - headerHeight - 20;
 
                         window.scrollTo({
-                            top: targetPosition,
+                            top: Math.max(0, targetPosition),
                             behavior: 'smooth'
                         });
 
                         // Close mobile menu if open
                         const navbarCollapse = document.querySelector('.navbar-collapse');
-                        if (navbarCollapse.classList.contains('show')) {
-                            const bsCollapse = new bootstrap.Collapse(navbarCollapse);
-                            bsCollapse.hide();
+                        if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+                            try {
+                                if (typeof bootstrap !== 'undefined' && bootstrap.Collapse) {
+                                    const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+                                    bsCollapse.hide();
+                                } else {
+                                    // Fallback for when Bootstrap JS is not loaded
+                                    navbarCollapse.classList.remove('show');
+                                }
+                            } catch (error) {
+                                console.warn('Bootstrap Collapse not available:', error);
+                                navbarCollapse.classList.remove('show');
+                            }
                         }
                     }
                 }
@@ -587,71 +614,112 @@ document.addEventListener('DOMContentLoaded', function () {
 
     /*==================== INITIALIZATION ====================*/
     function init() {
-        // Initialize all features
-        initSmoothScrolling();
-        initScrollToTop();
-        initScrollReveal();
-        initScrollIndicator();
-        initNavbarBrandAnimation();
-        initFormValidation();
-        initScrollProgressBar();
-        initAccessibility();
-        initErrorHandling();
-        initAdditionalAnimations();
+        try {
+            // Initialize elements first
+            initializeElements();
 
-        // Initialize performance-friendly features
-        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            initParallaxEffect();
-            initCardTiltEffect();
-            initTypingEffect();
-            initSmoothReveal();
+            // Check if required elements exist
+            if (!header) {
+                console.warn('Header element not found');
+            }
+
+            // Initialize all features with error handling
+            initSmoothScrolling();
+            initScrollToTop();
+            initScrollReveal();
+            initScrollIndicator();
+
+            // Initialize optional features
+            try {
+                initNavbarBrandAnimation();
+                initFormValidation();
+                initScrollProgressBar();
+                initAccessibility();
+                initErrorHandling();
+                initAdditionalAnimations();
+            } catch (error) {
+                console.warn('Some optional features failed to initialize:', error);
+            }
+
+            // Initialize performance-friendly features
+            if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                try {
+                    initParallaxEffect();
+                    initCardTiltEffect();
+                    initTypingEffect();
+                    initSmoothReveal();
+                } catch (error) {
+                    console.warn('Animation features failed to initialize:', error);
+                }
+            }
+
+            // Initialize lazy loading
+            if ('IntersectionObserver' in window) {
+                try {
+                    initLazyLoading();
+                } catch (error) {
+                    console.warn('Lazy loading failed to initialize:', error);
+                }
+            }
+
+            // Initialize mouse cursor effect for desktop only
+            if (window.innerWidth > 768) {
+                try {
+                    initMouseCursorEffect();
+                } catch (error) {
+                    console.warn('Mouse cursor effect failed to initialize:', error);
+                }
+            }
+
+            // Add event listeners with error handling
+            try {
+                window.addEventListener('scroll', optimizedScrollHandler);
+                window.addEventListener('resize', throttle(function () {
+                    updateActiveNavLink();
+                }, 250));
+            } catch (error) {
+                console.warn('Event listeners failed to initialize:', error);
+            }
+
+            // Initialize loading animation
+            try {
+                initLoadingAnimation();
+            } catch (error) {
+                console.warn('Loading animation failed to initialize:', error);
+            }
+
+            // Hide page loader
+            hidePageLoader();
+
+            console.log('VSEC Website initialized successfully!');
+        } catch (error) {
+            console.error('Website initialization failed:', error);
+            // Still hide the loader even if initialization fails
+            hidePageLoader();
         }
-
-        // Initialize lazy loading
-        if ('IntersectionObserver' in window) {
-            initLazyLoading();
-        }
-
-        // Initialize mouse cursor effect for desktop only
-        if (window.innerWidth > 768) {
-            initMouseCursorEffect();
-        }
-
-        // Add event listeners
-        window.addEventListener('scroll', optimizedScrollHandler);
-        window.addEventListener('resize', throttle(function () {
-            // Handle resize events
-            updateActiveNavLink();
-        }, 250));
-
-        // Initialize loading animation
-        initLoadingAnimation();
-
-        // Hide page loader
-        hidePageLoader();
-
-        console.log('VSEC Website initialized successfully!');
     }
 
     /*==================== START INITIALIZATION ====================*/
-    init();
+    // Initialize when ready
+    initializeWhenReady();
 
     /*==================== EXPOSE PUBLIC METHODS ====================*/
     window.VSECWebsite = {
-        showNotification: showNotification,
+        init: init,
         scrollToTop: function () {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         },
         scrollToSection: function (sectionId) {
             const section = document.getElementById(sectionId);
-            if (section) {
-                const headerHeight = header.offsetHeight;
+            if (section && header) {
+                const headerHeight = header.offsetHeight || 80;
                 const targetPosition = section.offsetTop - headerHeight - 20;
-                window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                window.scrollTo({ top: Math.max(0, targetPosition), behavior: 'smooth' });
             }
         }
     };
-});
+
+})(); // End of IIFE
 
 /*==================== ADDITIONAL UTILITIES ====================*/
 

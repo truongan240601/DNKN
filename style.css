@@ -1,3 +1,42 @@
+/* ===== BOOTSTRAP 5 CUSTOM STYLES FOR VSEC WEBSITE ===== */
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,0,1;wght@300;400;500;700;900&display=swap');
+
+/* ===== CSS VARIABLES ===== */
+:root {
+    /* Colors */
+    --primary-color: #003366;
+    --secondary-color: #1A73E8;
+    --accent-color: #CC0000;
+    --text-color: #333333;
+    --text-light: #666666;
+    --white-color: #FFFFFF;
+    --bg-light: #F8F9FA;
+    --bg-section: #F5F7FA;
+    --border-color: #E5E8ED;
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    --gradient-accent: linear-gradient(135deg, var(--accent-color) 0%, #FF4444 100%);
+    /* Typography */
+    --font-family: 'Roboto', sans-serif;
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+    --font-weight-black: 900;
+    /* Spacing */
+    --section-padding: 5rem 0;
+    --container-padding: 1rem;
+    /* Shadows */
+    --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.15);
+    --shadow-strong: 0 8px 32px rgba(0, 0, 0, 0.2);
+    /* Transitions */
+    --transition-fast: 0.2s ease-in-out;
+    --transition-normal: 0.3s ease-in-out;
+    --transition-slow: 0.5s ease-in-out;
+}
+
 /* ===== LOADING ANIMATION ===== */
 .page-loader {
     position: fixed;
@@ -5,7 +44,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    background: linear-gradient(135deg, #003366 0%, #1A73E8 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -35,7 +74,7 @@
 
 .loader-text {
     font-size: 1.2rem;
-    font-weight: var(--font-weight-medium);
+    font-weight: 500;
     animation: pulse 1.5s ease-in-out infinite;
 }
 
