@@ -1162,8 +1162,41 @@ body {
     transform: scale(1);
 }
 
+/* ===== MOBILE CONTENT VISIBILITY FIX ===== */
+@media (max-width: 991.98px) {
+
+    /* Disable animations on mobile for better performance and visibility */
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    /* Ensure all content is visible */
+    .section,
+    .container,
+    .row,
+    .col,
+    [class*="col-"] {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+}
+
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 991.98px) {
+
+    /* Ensure content is always visible on tablets and mobile */
+    .fade-in,
+    .slide-in-left,
+    .slide-in-right,
+    .scale-in {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
     .hero-title {
         font-size: 2.5rem;
     }
@@ -1183,6 +1216,17 @@ body {
 }
 
 @media (max-width: 767.98px) {
+
+    /* Force content visibility on mobile */
+    .fade-in,
+    .slide-in-left,
+    .slide-in-right,
+    .scale-in {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+
     :root {
         --section-padding: 3rem 0;
     }
@@ -1222,6 +1266,24 @@ body {
 }
 
 @media (max-width: 575.98px) {
+
+    /* Ensure all content is visible on small mobile devices */
+    .fade-in,
+    .slide-in-left,
+    .slide-in-right,
+    .scale-in,
+    .section-title,
+    .section-subtitle,
+    .service-card,
+    .advantage-card,
+    .customer-card,
+    .vision-card {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+        visibility: visible !important;
+    }
+
     .hero-title {
         font-size: 1.8rem;
     }

@@ -135,6 +135,29 @@
 
     /*==================== SCROLL REVEAL ANIMATIONS ====================*/
     function initScrollReveal() {
+        // Check if device is mobile or has reduced motion preference
+        const isMobile = window.innerWidth <= 991;
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // If mobile or reduced motion, show all content immediately
+        if (isMobile || prefersReducedMotion) {
+            const allAnimatedElements = document.querySelectorAll(
+                '.fade-in, .slide-in-left, .slide-in-right, .scale-in, .stat-item, .section-title, .animate-on-scroll, .service-card, .advantage-card, .customer-card, .vision-card'
+            );
+
+            allAnimatedElements.forEach(el => {
+                el.classList.add('visible');
+                el.style.opacity = '1';
+                el.style.transform = 'none';
+
+                // Animate counters for stat items
+                if (el.classList.contains('stat-item')) {
+                    animateCounter(el);
+                }
+            });
+            return; // Exit early, no need for intersection observer
+        }
+
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -568,11 +591,35 @@
         });
     }
 
+    /*==================== MOBILE CONTENT VISIBILITY ====================*/
+    function forceMobileVisibility() {
+        if (window.innerWidth <= 991) {
+            const allAnimatedElements = document.querySelectorAll(
+                '.fade-in, .slide-in-left, .slide-in-right, .scale-in, .stat-item, .section-title, .animate-on-scroll, .service-card, .advantage-card, .customer-card, .vision-card, .section, .container, .row, [class*="col-"]'
+            );
+
+            allAnimatedElements.forEach(el => {
+                el.classList.add('visible');
+                el.style.opacity = '1';
+                el.style.transform = 'none';
+                el.style.visibility = 'visible';
+
+                // Animate counters for stat items
+                if (el.classList.contains('stat-item')) {
+                    animateCounter(el);
+                }
+            });
+        }
+    }
+
     /*==================== INITIALIZATION ====================*/
     function init() {
         try {
             // Initialize elements first
             initializeElements();
+
+            // Force mobile visibility immediately
+            forceMobileVisibility();
 
             // Check if required elements exist
             if (!header) {
@@ -632,6 +679,18 @@
                 window.addEventListener('scroll', optimizedScrollHandler);
                 window.addEventListener('resize', throttle(function () {
                     updateActiveNavLink();
+                    // Re-check mobile status and force visibility if needed
+                    if (window.innerWidth <= 991) {
+                        const allAnimatedElements = document.querySelectorAll(
+                            '.fade-in, .slide-in-left, .slide-in-right, .scale-in, .stat-item, .section-title, .animate-on-scroll, .service-card, .advantage-card, .customer-card, .vision-card'
+                        );
+
+                        allAnimatedElements.forEach(el => {
+                            el.classList.add('visible');
+                            el.style.opacity = '1';
+                            el.style.transform = 'none';
+                        });
+                    }
                 }, 250));
             } catch (error) {
                 console.warn('Event listeners failed to initialize:', error);
