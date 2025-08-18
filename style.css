@@ -1,4 +1,11 @@
 /* ===== BOOTSTRAP 5 CUSTOM STYLES FOR VSEC WEBSITE ===== */
+
+.hero-title {
+    font-family: 'Be Vietnam Pro', Arial, Helvetica, sans-serif !important;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,0,1;wght@300;400;500;700;900&display=swap');
 
@@ -572,12 +579,37 @@ body {
 
 .hero-description {
     font-size: 1.1rem;
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
     opacity: 0.9;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
     animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+.hero-desc-main {
+    display: block;
+    font-weight: var(--font-weight-medium);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.hero-desc-sub {
+    font-size: 1.05rem;
+    margin-bottom: 3rem;
+    opacity: 0.85;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+.hero-desc-highlight {
+    display: block;
+    font-weight: var(--font-weight-normal);
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+    font-style: italic;
 }
 
 .hero-buttons {
@@ -616,6 +648,110 @@ body {
 
 .scroll-indicator:hover i {
     animation: bounce 1s infinite;
+}
+
+/* ===== ECOSYSTEM SECTION ===== */
+.ecosystem-section {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+}
+
+.ecosystem-background {
+    background: linear-gradient(135deg,
+            rgba(0, 51, 102, 0.9) 0%,
+            rgba(26, 115, 232, 0.8) 100%), url('./images/HST.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 5rem 0;
+    position: relative;
+}
+
+.ecosystem-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 51, 102, 0.1);
+    z-index: 1;
+}
+
+.ecosystem-background .container {
+    position: relative;
+    z-index: 2;
+}
+
+.ecosystem-content {
+    color: white;
+}
+
+.ecosystem-title {
+    font-size: 2rem;
+    font-weight: var(--font-weight-bold);
+    color: white;
+    margin-bottom: 1.5rem;
+}
+
+.ecosystem-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.ecosystem-features {
+    margin-bottom: 2rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    padding: 0.8rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+}
+
+.feature-item i {
+    font-size: 1.2rem;
+    margin-right: 1rem;
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+}
+
+.feature-item span {
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.6;
+}
+
+.ecosystem-mission {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 1.5rem;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.ecosystem-mission h4 {
+    color: white;
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.ecosystem-mission p {
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+.ecosystem-image img {
+    border-radius: 15px;
+    box-shadow: var(--shadow-strong);
 }
 
 /* ===== SECTION STYLES ===== */
@@ -702,6 +838,80 @@ body {
 .highlight-text {
     color: var(--primary-color);
     font-weight: var(--font-weight-bold);
+}
+
+.about-heading {
+    color: var(--primary-color);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+}
+
+/* ===== STRATEGY SECTION ===== */
+.strategy-section {
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 2px solid var(--border-color);
+}
+
+.strategy-title {
+    font-size: 2rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.strategy-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    box-shadow: var(--shadow-light);
+    transition: all var(--transition-normal);
+    height: 100%;
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.strategy-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+    border-color: var(--secondary-color);
+}
+
+.strategy-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-accent);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    transition: var(--transition-normal);
+}
+
+.strategy-card:hover .strategy-icon {
+    transform: scale(1.1);
+}
+
+.strategy-icon i {
+    font-size: 1.8rem;
+    color: white;
+}
+
+.strategy-card h4 {
+    font-size: 1.2rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.strategy-card p {
+    color: var(--text-light);
+    line-height: 1.6;
+    font-size: 0.95rem;
 }
 
 /* ===== SERVICES SECTION ===== */
@@ -791,6 +1001,26 @@ body {
 .service-description {
     color: var(--text-light);
     line-height: 1.6;
+}
+
+.service-description ul {
+    list-style: none;
+    padding-left: 0;
+    text-align: left;
+}
+
+.service-description ul li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 8px;
+}
+
+.service-description ul li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--secondary-color);
+    font-weight: bold;
 }
 
 /* ===== ADVANTAGES SECTION ===== */
@@ -961,6 +1191,65 @@ body {
     font-size: 1.1rem;
     line-height: 1.8;
     color: var(--text-light);
+}
+
+.vision-description ul {
+    list-style: none;
+    padding-left: 0;
+    text-align: left;
+}
+
+.vision-description ul li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 8px;
+}
+
+.vision-description ul li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+/* ===== ESG SECTION ===== */
+.esg-content {
+    background: white;
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: var(--shadow-medium);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.esg-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: var(--gradient-primary);
+}
+
+.esg-description .lead {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+}
+
+.esg-description .text-highlight {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--primary-color);
+    font-weight: var(--font-weight-medium);
+    background: linear-gradient(135deg, rgba(0, 51, 102, 0.05) 0%, rgba(26, 115, 232, 0.05) 100%);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid var(--secondary-color);
 }
 
 /* ===== CONTACT SECTION ===== */
@@ -1387,5 +1676,171 @@ body {
 
     .section {
         padding: 2rem 0;
+    }
+}
+
+/* ===== CONTACT MODAL STYLES ===== */
+/* Custom modal backdrop with more transparency */
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.modal-content {
+    border: none;
+    border-radius: 15px;
+    box-shadow: var(--shadow-strong);
+}
+
+.modal-header {
+    background: var(--gradient-primary);
+    color: white;
+    border-radius: 15px 15px 0 0;
+    border-bottom: none;
+    padding: 1.5rem 2rem;
+}
+
+.modal-title {
+    font-weight: var(--font-weight-bold);
+    font-size: 1.3rem;
+}
+
+.btn-close {
+    filter: invert(1);
+    opacity: 0.8;
+}
+
+.btn-close:hover {
+    opacity: 1;
+}
+
+.modal-body {
+    padding: 2rem;
+}
+
+.contact-info-modal h6 {
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 1.5rem;
+}
+
+.contact-item-modal {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.contact-item-modal:last-child {
+    border-bottom: none;
+}
+
+.contact-item-modal i {
+    font-size: 1.2rem;
+    width: 20px;
+    text-align: center;
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+}
+
+.contact-item-modal .contact-item-content {
+    flex: 1;
+}
+
+.contact-item-modal strong {
+    color: var(--text-color);
+    font-weight: var(--font-weight-medium);
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.contact-actions h6 {
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 1rem;
+}
+
+.contact-actions .btn {
+    font-weight: var(--font-weight-medium);
+    border-radius: 10px;
+    padding: 12px 20px;
+    transition: all var(--transition-normal);
+}
+
+.contact-actions .btn-primary {
+    background: var(--gradient-primary);
+    border: none;
+}
+
+.contact-actions .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+.contact-actions .btn-outline-primary {
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.contact-actions .btn-outline-primary:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+.contact-actions .btn-success {
+    background: linear-gradient(135deg, #0084ff 0%, #0066cc 100%);
+    border: none;
+}
+
+.contact-actions .btn-success:hover {
+    background: linear-gradient(135deg, #0066cc 0%, #004499 100%);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+.modal-footer {
+    background: var(--bg-light);
+    border-top: 1px solid var(--border-color);
+    border-radius: 0 0 15px 15px;
+    padding: 1rem 2rem;
+    text-align: center;
+}
+
+.modal-footer .text-muted {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Modal animation */
+.modal.fade .modal-dialog {
+    transform: translate(0, -50px);
+    transition: transform 0.3s ease-out;
+}
+
+.modal.show .modal-dialog {
+    transform: translate(0, 0);
+}
+
+/* Responsive modal */
+@media (max-width: 768px) {
+    .modal-dialog {
+        margin: 1rem;
+    }
+
+    .modal-body {
+        padding: 1.5rem;
+    }
+
+    .modal-header {
+        padding: 1.25rem 1.5rem;
+    }
+
+    .modal-footer {
+        padding: 1rem 1.5rem;
+    }
+
+    .contact-actions .btn {
+        padding: 10px 15px;
+        font-size: 0.95rem;
     }
 }

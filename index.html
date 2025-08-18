@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="VSEC - Công ty TNHH Doanh Nhân Khởi Nghiệp Việt Nam cung cấp giải pháp cho thuê kho bãi linh hoạt, an toàn và hiệu quả. Hơn 15 năm kinh nghiệm trong lĩnh vực logistics.">
+        content="VSEC - Công ty TNHH Doanh Nhân Khởi Nghiệp Việt Nam cung cấp giải pháp cho thuê kho bãi linh hoạt, an toàn và hiệu quả. Hơn 5 năm kinh nghiệm trong lĩnh vực logistics.">
     <meta name="keywords" content="VSEC, cho thuê kho, logistics, kho bãi, vận chuyển, Việt Nam">
     <meta name="author" content="VSEC - Công ty TNHH Doanh Nhân Khởi Nghiệp Việt Nam">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,13 +13,13 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="VSEC - Giải pháp cho thuê kho bãi linh hoạt">
-    <meta property="og:description" content="An toàn – Hiệu quả. Hơn 15 năm kinh nghiệm trong lĩnh vực logistics.">
+    <meta property="og:description" content="An toàn – Hiệu quả. Hơn 5 năm kinh nghiệm trong lĩnh vực logistics.">
     <meta property="og:image" content="./images/warehouse.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:title" content="VSEC - Giải pháp cho thuê kho bãi linh hoạt">
-    <meta property="twitter:description" content="An toàn – Hiệu quả. Hơn 15 năm kinh nghiệm trong lĩnh vực logistics.">
+    <meta property="twitter:description" content="An toàn – Hiệu quả. Hơn 5 năm kinh nghiệm trong lĩnh vực logistics.">
 
     <title>VSEC - Giải pháp cho thuê kho bãi linh hoạt – An toàn – Hiệu quả</title>
 
@@ -30,6 +30,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+    <!-- Google Fonts: Be Vietnam Pro for Vietnamese -->
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700;900&display=swap" rel="stylesheet">
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
@@ -105,8 +107,15 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#about">Giới thiệu</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#services">Dịch vụ</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#services" id="servicesDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Dịch vụ
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                                <li><a class="dropdown-item" href="#services">Dịch vụ chính</a></li>
+                                <li><a class="dropdown-item" href="#support-services">Dịch vụ hỗ trợ</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#advantages">Lợi thế</a>
@@ -131,22 +140,97 @@
         <section id="home" class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h1 class="hero-title">Giải pháp cho thuê kho bãi linh hoạt 1</h1>
+                    <h1 class="hero-title">Giải pháp cho thuê kho bãi linh hoạt</h1>
                     <p class="hero-subtitle">An toàn – Hiệu quả</p>
                     <p class="hero-description">
-                        Với hơn 15 năm kinh nghiệm, VSEC cung cấp giải pháp logistics toàn diện,
-                        đáp ứng mọi nhu cầu lưu trữ và vận chuyển của doanh nghiệp.
+                        <span class="hero-desc-main">Thành lập năm 2019, VSEC là thành viên của Hệ sinh thái TCT Đối Tác
+                            Chân Thật, hoạt động trong
+                            lĩnh vực cho thuê kho bãi và lưu trữ hàng hóa.</span>
+                    </p>
+                    <p class="hero-desc-sub">
+                        <span class="hero-desc-highlight">Với hệ thống vận hành hiệu quả, chúng tôi cam kết mang đến
+                            dịch vụ <br>
+                            an toàn – chuyên nghiệp – tin
+                            cậy,<br> đáp ứng nhu cầu của doanh nghiệp trong và ngoài nước.</span>
                     </p>
                     <div class="hero-buttons">
                         <a href="#services" class="btn btn-primary btn-lg">Khám phá dịch vụ</a>
-                        <a href="#contact" class="btn btn-outline-light btn-lg">Liên hệ ngay</a>
+                        <button type="button" class="btn btn-outline-light btn-lg" data-bs-toggle="modal"
+                            data-bs-target="#contactModal">Liên hệ ngay</button>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="scroll-indicator">
-                <i class="fas fa-chevron-down"></i>
-                <small>Cuộn xuống</small>
+        <!-- Ecosystem Section -->
+        <section id="ecosystem" class="section ecosystem-section">
+            <div class="ecosystem-background">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title fade-in text-white">Hệ sinh thái TCT Đối Tác Chân Thật</h2>
+                        <p class="section-subtitle fade-in text-white">
+                            Lấy logistics làm nền tảng cốt lõi - Thân · Tâm · Trí · Thiện
+                        </p>
+                    </div>
+
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <div class="ecosystem-content fade-in">
+                                <div class="ecosystem-text">
+                                    <h3 class="ecosystem-title">Tiên phong cung cấp giải pháp logistics toàn diện</h3>
+                                    <p class="ecosystem-description">
+                                        Tổng Công Ty Đối Tác Chân Thật (TCT ĐTCT) thành lập năm 2009 là đơn vị tiên
+                                        phong
+                                        cung cấp các giải pháp logistics toàn diện. TCT ĐTCT cung cấp các dịch vụ đa
+                                        dạng như:
+                                        bãi container, vận tải hàng hóa, quản lý chuỗi cung ứng, kho bãi, phân phối, và
+                                        vận tải
+                                        đa phương thức, với phạm vi hoạt động trải rộng tại Việt Nam, Campuchia và Thái
+                                        Lan.
+                                    </p>
+
+                                    <div class="ecosystem-features">
+                                        <div class="feature-item">
+                                            <i class="fas fa-seedling text-primary"></i>
+                                            <span><strong>Tinh thần trách nhiệm:</strong> Cung cấp sản phẩm dịch vụ chất
+                                                lượng, bảo vệ môi trường và bảo tồn tài nguyên</span>
+                                        </div>
+                                        <div class="feature-item">
+                                            <i class="fas fa-handshake text-primary"></i>
+                                            <span><strong>Sự tin tưởng:</strong> Liên tục đổi mới và cải tiến để mang
+                                                đến sản phẩm dịch vụ chất lượng</span>
+                                        </div>
+                                        <div class="feature-item">
+                                            <i class="fas fa-leaf text-primary"></i>
+                                            <span><strong>Phát triển bền vững:</strong> Đóng góp tích cực vào xã hội và
+                                                bảo vệ môi trường</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="ecosystem-mission">
+                                        <h4>Giá trị cốt lõi Thân - Tâm - Trí - Thiện</h4>
+                                        <p>
+                                            HST TCT ĐTCT được xây dựng dựa trên các giá trị cốt lõi Thân - Tâm - Trí -
+                                            Thiện,
+                                            định hướng một môi trường hợp tác năng động và bền vững. HST TCT ĐTCT không
+                                            chỉ kết nối
+                                            đa dạng năng lực và chuyên môn mà còn cam kết thúc đẩy tăng trưởng bền vững,
+                                            tạo giá trị
+                                            vượt trội cho các ngành công nghiệp và lĩnh vực kinh tế mà tập đoàn tham
+                                            gia.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="ecosystem-image fade-in">
+                                <img src="./images/HST.jpg" alt="Hệ sinh thái TCT Đối Tác Chân Thật"
+                                    class="img-fluid rounded">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -154,9 +238,9 @@
         <section id="about" class="section">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title fade-in">Giới thiệu về VSEC</h2>
+                    <h2 class="section-title fade-in">Giới thiệu về Công ty TNHH Doanh Nhân Khởi Nghiệp Việt Nam</h2>
                     <p class="section-subtitle fade-in">
-                        Công ty TNHH Doanh Nhân Khởi Nghiệp Việt Nam - Đối tác tin cậy trong lĩnh vực logistics
+                        Chuyên sâu 100% vào lĩnh vực cho thuê kho bãi và lưu trữ hàng hóa
                     </p>
                 </div>
 
@@ -165,14 +249,14 @@
                     <div class="row">
                         <div class="col-md-3 col-6">
                             <div class="stat-item">
-                                <span class="stat-number">15+</span>
-                                <div class="stat-label">Năm kinh nghiệm</div>
+                                <span class="stat-number">2019</span>
+                                <div class="stat-label">Năm thành lập</div>
                             </div>
                         </div>
                         <div class="col-md-3 col-6">
                             <div class="stat-item">
-                                <span class="stat-number">100+</span>
-                                <div class="stat-label">Nhân viên</div>
+                                <span class="stat-number">100%</span>
+                                <div class="stat-label">Chuyên sâu kho bãi</div>
                             </div>
                         </div>
                         <div class="col-md-3 col-6">
@@ -194,20 +278,19 @@
                     <div class="row align-items-center">
                         <div class="col-lg-6">
                             <div class="about-text slide-in-left">
+                                <h3 class="about-heading">VSEC: Giải pháp cho thuê kho bãi chuyên nghiệp</h3>
                                 <p>
                                     <span class="highlight-text">Công ty TNHH Doanh Nhân Khởi Nghiệp Việt Nam
                                         (VSEC)</span>
-                                    được thành lập với sứ mệnh cung cấp các giải pháp logistics toàn diện,
-                                    chuyên nghiệp và hiệu quả cho các doanh nghiệp Việt Nam.
+                                    thành lập năm 2019, là thành viên của Hệ sinh thái TCT Đối Tác Chân Thật,
+                                    chuyên môn sâu trong lĩnh vực cho thuê kho bãi và lưu trữ hàng hóa.
                                 </p>
                                 <p>
-                                    Với đội ngũ nhân viên giàu kinh nghiệm và hệ thống kho bãi hiện đại,
-                                    chúng tôi cam kết mang đến cho khách hàng những dịch vụ chất lượng cao,
-                                    an toàn và tiết kiệm chi phí.
-                                </p>
-                                <p>
-                                    Chúng tôi không ngừng đầu tư vào công nghệ và nâng cao năng lực phục vụ
-                                    để trở thành đối tác tin cậy trong hành trình phát triển của doanh nghiệp.
+                                    Với hệ thống vận hành hiệu quả, VSEC sẵn sàng phục vụ doanh nghiệp trong và ngoài
+                                    nước
+                                    với dịch vụ chuyên nghiệp và tin cậy, đáp ứng linh hoạt các nhu cầu lưu trữ ngắn
+                                    hạn,
+                                    dài hạn theo diện tích phù hợp mọi quy mô doanh nghiệp.
                                 </p>
                             </div>
                         </div>
@@ -217,95 +300,164 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Strategy Section -->
+                    <div class="strategy-section mt-5">
+                        <h3 class="strategy-title text-center mb-4">Chiến lược kinh doanh cốt lõi</h3>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-6 mb-4">
+                                <div class="strategy-card">
+                                    <div class="strategy-icon">
+                                        <i class="fas fa-bullseye"></i>
+                                    </div>
+                                    <h4>Tập trung chuyên sâu</h4>
+                                    <p>100% vào lĩnh vực cho thuê kho bãi, phát triển chuyên môn sâu rộng, cung cấp giải
+                                        pháp tối ưu.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 mb-4">
+                                <div class="strategy-card">
+                                    <div class="strategy-icon">
+                                        <i class="fas fa-expand-arrows-alt"></i>
+                                    </div>
+                                    <h4>Mở rộng quy mô</h4>
+                                    <p>Nâng cao năng lực phục vụ khách hàng, chuẩn hóa dịch vụ, tối ưu hóa trải nghiệm
+                                        khách hàng.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 mb-4">
+                                <div class="strategy-card">
+                                    <div class="strategy-icon">
+                                        <i class="fas fa-digital-tachograph"></i>
+                                    </div>
+                                    <h4>Chuyển đổi số</h4>
+                                    <p>Đồng bộ hóa vận hành với hệ sinh thái logistics, ứng dụng công nghệ nâng cao hiệu
+                                        quả và minh bạch.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 mb-4">
+                                <div class="strategy-card">
+                                    <div class="strategy-icon">
+                                        <i class="fas fa-sync-alt"></i>
+                                    </div>
+                                    <h4>Đáp ứng linh hoạt</h4>
+                                    <p>Giải pháp lưu trữ ngắn hạn, dài hạn và linh hoạt theo diện tích, phù hợp mọi nhu
+                                        cầu doanh nghiệp.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Services Section -->
+        <!-- Main Services Section -->
         <section id="services" class="section section-bg">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title fade-in">Dịch vụ của chúng tôi</h2>
+                    <h2 class="section-title fade-in">Dịch vụ chính của VSEC</h2>
                     <p class="section-subtitle fade-in">
-                        Cung cấp giải pháp logistics toàn diện cho mọi nhu cầu của doanh nghiệp
+                        Dịch vụ cốt lõi và chuyên môn hàng đầu của chúng tôi
                     </p>
                 </div>
 
                 <div class="row">
-                    <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="col-lg-6 col-md-6 mb-4">
                         <div class="service-card fade-in">
                             <div class="service-icon">
                                 <i class="fas fa-warehouse"></i>
                             </div>
                             <h3 class="service-title">Cho thuê kho hàng hóa</h3>
-                            <p class="service-description">
-                                Hệ thống kho bãi hiện đại với nhiều diện tích khác nhau,
-                                bảo mật 24/7, điều kiện bảo quản tối ưu.
-                            </p>
+                            <div class="service-description">
+                                <ul>
+                                    <li>Kho xây dựng theo tiêu chuẩn công nghiệp hiện đại.</li>
+                                    <li>Hệ thống PCCC tự động, camera an ninh giám sát 24/7 và đội ngũ bảo vệ chuyên
+                                        nghiệp.</li>
+                                    <li>Hỗ trợ lưu trữ hàng hóa theo pallet hoặc block, tối ưu không gian và dễ dàng
+                                        quản lý.</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="col-lg-6 col-md-6 mb-4">
                         <div class="service-card fade-in">
                             <div class="service-icon">
                                 <i class="fas fa-truck-loading"></i>
                             </div>
                             <h3 class="service-title">Cho thuê bãi lưu hàng</h3>
-                            <p class="service-description">
-                                Bãi lưu trữ rộng rãi cho container, hàng siêu trường siêu trọng,
-                                với hệ thống cân tải trọng hiện đại.
-                            </p>
+                            <div class="service-description">
+                                <ul>
+                                    <li>Bãi ngoài trời hoặc có mái che, phù hợp với nhiều loại hàng hóa.</li>
+                                    <li>Diện tích linh hoạt, có kiểm soát ra vào chặt chẽ.</li>
+                                    <li>Cung cấp bãi lưu trữ container và bãi trung chuyển hàng hóa, đáp ứng mọi nhu cầu
+                                        logistics.</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
 
-                    <div class="col-lg-4 col-md-6 mb-4">
+        <!-- Support Services Section -->
+        <section id="support-services" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title fade-in">Dịch vụ hỗ trợ đi kèm</h2>
+                    <p class="section-subtitle fade-in">
+                        Dịch vụ bổ trợ toàn diện để tối ưu hóa chuỗi cung ứng của bạn
+                    </p>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 mb-4">
                         <div class="service-card fade-in">
                             <div class="service-icon">
                                 <i class="fas fa-shipping-fast"></i>
                             </div>
-                            <h3 class="service-title">Vận chuyển & điều phối</h3>
+                            <h3 class="service-title">Vận chuyển & Điều phối</h3>
                             <p class="service-description">
-                                Dịch vụ vận chuyển đa phương thức, nội địa và quốc tế
-                                với hệ thống theo dõi thời gian thực.
+                                Dịch vụ vận chuyển và điều phối hàng hóa chuyên nghiệp, đảm bảo giao nhận đúng giờ và an
+                                toàn.
                             </p>
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="col-lg-6 col-md-6 mb-4">
                         <div class="service-card fade-in">
                             <div class="service-icon">
                                 <i class="fas fa-boxes"></i>
                             </div>
-                            <h3 class="service-title">Bốc xếp & đóng gói</h3>
+                            <h3 class="service-title">Bốc xếp & Đóng gói</h3>
                             <p class="service-description">
-                                Dịch vụ bốc xếp chuyên nghiệp với trang thiết bị hiện đại,
-                                đóng gói theo tiêu chuẩn quốc tế.
+                                Đội ngũ nhân viên bốc xếp, đóng gói và dán nhãn chuyên nghiệp, đảm bảo hàng hóa được xử
+                                lý cẩn thận.
                             </p>
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="col-lg-6 col-md-6 mb-4">
                         <div class="service-card fade-in">
                             <div class="service-icon">
                                 <i class="fas fa-chart-line"></i>
                             </div>
                             <h3 class="service-title">Quản lý tồn kho</h3>
                             <p class="service-description">
-                                Hệ thống WMS hiện đại giúp quản lý tồn kho hiệu quả,
-                                báo cáo chi tiết theo thời gian thực.
+                                Phần mềm quản lý tồn kho hiện đại, giúp khách hàng theo dõi và kiểm soát hàng hóa hiệu
+                                quả.
                             </p>
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="col-lg-6 col-md-6 mb-4">
                         <div class="service-card fade-in">
                             <div class="service-icon">
                                 <i class="fas fa-handshake"></i>
                             </div>
                             <h3 class="service-title">Hỗ trợ đa dạng</h3>
                             <p class="service-description">
-                                Tư vấn logistics, hỗ trợ thủ tục hải quan,
-                                dịch vụ bảo hiểm và thanh toán linh hoạt.
+                                Hỗ trợ giám định, bảo hiểm hàng hóa và thủ tục xuất nhập khẩu linh hoạt, minh bạch.
                             </p>
                         </div>
                     </div>
@@ -332,7 +484,7 @@
                             <h3 class="advantage-title">Vị trí chiến lược</h3>
                             <p>
                                 Nằm tại các vị trí giao thông thuận lợi,
-                                gần cảng, sân bay và các tuyến đường chính.
+                                Gần cảng, quốc lộ và các khu công nghiệp, tối ưu hóa thời gian và chi phí vận chuyển.
                             </p>
                         </div>
                     </div>
@@ -344,8 +496,7 @@
                             </div>
                             <h3 class="advantage-title">Diện tích đa dạng</h3>
                             <p>
-                                Từ 100m² đến 10,000m², đáp ứng nhu cầu
-                                từ doanh nghiệp nhỏ đến tập đoàn lớn.
+                                Từ 50 m² đến hơn 1.000 m², đáp ứng mọi quy mô và nhu cầu lưu trữ của doanh nghiệp.
                             </p>
                         </div>
                     </div>
@@ -358,7 +509,7 @@
                             <h3 class="advantage-title">Quy trình rõ ràng</h3>
                             <p>
                                 Quy trình tiêu chuẩn hóa, minh bạch,
-                                đảm bảo chất lượng dịch vụ nhất quán.
+                                đảm bảo tính minh bạch và hiệu quả trong mọi khâu dịch vụ.
                             </p>
                         </div>
                     </div>
@@ -370,8 +521,8 @@
                             </div>
                             <h3 class="advantage-title">Phục vụ 24/7</h3>
                             <p>
-                                Hoạt động liên tục 24/7, sẵn sàng hỗ trợ
-                                khách hàng mọi lúc mọi nơi.
+                                Hoạt động liên tục 24/7, sẵn sàng hỗ trợ kỹ thuật và vận chuyển nhanh chóng, luôn sẵn
+                                sàng đồng hành cùng khách hàng mọi lúc mọi nơi.
                             </p>
                         </div>
                     </div>
@@ -384,7 +535,7 @@
                             <h3 class="advantage-title">Chi phí tối ưu</h3>
                             <p>
                                 Mức giá cạnh tranh, nhiều gói dịch vụ
-                                phù hợp với mọi ngân sách.
+                                linh hoạt cho thuê ngắn và dài hạn, mang lại giải pháp kinh tế nhất cho doanh nghiệp.
                             </p>
                         </div>
                     </div>
@@ -476,8 +627,8 @@
                             </div>
                             <h3 class="vision-title">Tầm nhìn</h3>
                             <p class="vision-description">
-                                Trở thành nhà cung cấp dịch vụ logistics hàng đầu Việt Nam,
-                                được khách hàng tin tựa và đối tác quốc tế đánh giá cao.
+                                Trở thành đối tác kho bãi đáng tin cậy hàng đầu tại TP.HCM, mang đến giá trị bền vững
+                                cho khách hàng và cộng đồng.
                             </p>
                         </div>
                     </div>
@@ -489,8 +640,8 @@
                             </div>
                             <h3 class="vision-title">Sứ mệnh</h3>
                             <p class="vision-description">
-                                Cung cấp giải pháp logistics toàn diện, chuyên nghiệp,
-                                góp phần nâng cao hiệu quả hoạt động và sức cạnh tranh của doanh nghiệp.
+                                Tối ưu không gian lưu trữ và nâng cao hiệu quả vận hành cho khách hàng, góp phần vào sự
+                                phát triển của chuỗi cung ứng.
                             </p>
                         </div>
                     </div>
@@ -502,8 +653,10 @@
                             </div>
                             <h3 class="vision-title">Giá trị cốt lõi</h3>
                             <p class="vision-description">
-                                Chất lượng - Uy tín - Hiệu quả. Chúng tôi cam kết mang đến
-                                dịch vụ chất lượng cao với chi phí hợp lý nhất.
+                                <b>Tin cậy:</b> Minh bạch, uy tín luôn đặt lên hàng đầu. </br>
+                                <b>Trách nhiệm:</b> Cam kết đúng lời hứa, chịu trách nhiệm với khách hàng. </br>
+                                <b>Bền vững:</b> Tạo giá trị lâu dài cho xã hội và môi trường. </br>
+                                <b>Đồng hành:</b> Sát cánh cùng khách hàng vì thành công chung.
                             </p>
                         </div>
                     </div>
@@ -511,67 +664,31 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="section contact">
+        <!-- ESG Section -->
+        <section id="esg" class="section section-bg">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title fade-in">Liên hệ với chúng tôi</h2>
+                    <h2 class="section-title fade-in">Hành trình hướng tới phát triển bền vững</h2>
                     <p class="section-subtitle fade-in">
-                        Sẵn sàng hỗ trợ và tư vấn giải pháp logistics phù hợp cho doanh nghiệp của bạn
+                        ESG (Môi trường, Xã hội và Quản trị) là yếu tố cốt lõi trong chiến lược của DNKN VN
                     </p>
                 </div>
 
-                <div class="row">
-                    <div class="col-lg-6 mb-4">
-                        <div class="contact-info fade-in">
-                            <div class="contact-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <div class="contact-item-content">
-                                    <h5>Địa chỉ</h5>
-                                    <p>Số 2A Đường số 5, Khu dân cư An Phú, Phường An Phú, Thành phố Thủ Đức, TP.HCM</p>
-                                </div>
-                            </div>
-
-                            <div class="contact-item">
-                                <i class="fas fa-phone"></i>
-                                <div class="contact-item-content">
-                                    <h5>Hotline</h5>
-                                    <p>(84) 888 000 999</p>
-                                </div>
-                            </div>
-
-                            <div class="contact-item">
-                                <i class="fas fa-envelope"></i>
-                                <div class="contact-item-content">
-                                    <h5>Email</h5>
-                                    <p>info@vsec.vn</p>
-                                </div>
-                            </div>
-
-                            <div class="contact-item">
-                                <i class="fas fa-globe"></i>
-                                <div class="contact-item-content">
-                                    <h5>Website</h5>
-                                    <p>www.vsec.vn</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6">
-                        <div class="contact-cta fade-in">
-                            <h3 class="mb-4">Bạn cần tư vấn?</h3>
-                            <p class="mb-4">
-                                Liên hệ ngay với chúng tôi để được tư vấn miễn phí
-                                và nhận báo giá tốt nhất cho doanh nghiệp của bạn.
-                            </p>
-                            <div class="d-grid gap-2">
-                                <a href="tel:+84888000999" class="btn btn-accent btn-lg">
-                                    <i class="fas fa-phone"></i> Gọi ngay
-                                </a>
-                                <a href="mailto:info@vsec.vn" class="btn btn-outline-light btn-lg">
-                                    <i class="fas fa-envelope"></i> Gửi email
-                                </a>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="esg-content fade-in">
+                            <div class="esg-description">
+                                <p class="lead mb-4">
+                                    ESG (Môi trường, Xã hội và Quản trị) là yếu tố cốt lõi trong chiến lược của DNKN VN,
+                                    thể hiện cam kết của chúng tôi đối với sự phát triển bền vững và có trách nhiệm.
+                                    Chúng tôi tích hợp các nguyên tắc ESG vào mọi hoạt động nhằm thúc đẩy tính minh bạch
+                                    và tạo ra những thay đổi tích cực trong các lĩnh vực môi trường, xã hội và quản trị.
+                                </p>
+                                <p class="text-highlight">
+                                    Thông qua việc áp dụng ESG, DNKN VN cam kết tạo ra giá trị lâu dài cho cộng đồng,
+                                    nhân viên và cổ đông, đồng thời giải quyết các thách thức toàn cầu và xây dựng
+                                    một tương lai bền vững, vững chắc.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -579,6 +696,95 @@
             </div>
         </section>
     </main>
+
+    <!-- Contact Modal -->
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="contactModalLabel">
+                        <i class="fas fa-phone-alt me-2"></i>Liên hệ với chúng tôi
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="contact-info-modal">
+                                <h6 class="mb-3 text-primary">
+                                    <i class="fas fa-info-circle me-2"></i>Thông tin liên hệ
+                                </h6>
+
+                                <div class="contact-item-modal mb-3">
+                                    <i class="fas fa-map-marker-alt text-primary"></i>
+                                    <div class="contact-item-content">
+                                        <strong>Địa chỉ:</strong>
+                                        <p class="mb-0">Số 2A Đường số 5, Khu dân cư An Phú, Phường An Phú, Thành phố
+                                            Thủ Đức, TP.HCM</p>
+                                    </div>
+                                </div>
+
+                                <div class="contact-item-modal mb-3">
+                                    <i class="fas fa-phone text-primary"></i>
+                                    <div class="contact-item-content">
+                                        <strong>Hotline:</strong>
+                                        <p class="mb-0">(84) 888 000 999</p>
+                                    </div>
+                                </div>
+
+                                <div class="contact-item-modal mb-3">
+                                    <i class="fas fa-envelope text-primary"></i>
+                                    <div class="contact-item-content">
+                                        <strong>Email:</strong>
+                                        <p class="mb-0">info@vsec.vn</p>
+                                    </div>
+                                </div>
+
+                                <div class="contact-item-modal mb-3">
+                                    <i class="fas fa-globe text-primary"></i>
+                                    <div class="contact-item-content">
+                                        <strong>Website:</strong>
+                                        <p class="mb-0">www.vsec.vn</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="contact-actions">
+                                <h6 class="mb-3 text-primary">
+                                    <i class="fas fa-headset me-2"></i>Liên hệ ngay
+                                </h6>
+                                <p class="mb-4 text-muted">
+                                    Liên hệ ngay với chúng tôi để được tư vấn miễn phí và nhận báo giá tốt nhất cho
+                                    doanh nghiệp của bạn.
+                                </p>
+
+                                <div class="d-grid gap-3">
+                                    <a href="tel:+84888000999" class="btn btn-primary btn-lg">
+                                        <i class="fas fa-phone me-2"></i>Gọi ngay
+                                    </a>
+                                    <a href="mailto:info@vsec.vn" class="btn btn-outline-primary btn-lg">
+                                        <i class="fas fa-envelope me-2"></i>Gửi email
+                                    </a>
+                                    <a href="https://zalo.me/84888000999" target="_blank"
+                                        class="btn btn-success btn-lg">
+                                        <i class="fab fa-zalo me-2"></i>Chat Zalo
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <p class="text-muted small mb-0">
+                        <i class="fas fa-clock me-1"></i>
+                        Chúng tôi phục vụ 24/7, sẵn sàng hỗ trợ bạn mọi lúc!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
