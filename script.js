@@ -1079,3 +1079,50 @@ function initVideoServices() {
 document.addEventListener('DOMContentLoaded', function () {
     initVideoServices();
 });
+
+
+// script.js
+function initNetworkCanvas() {
+    const canvas = document.getElementById('techNetwork');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let nodes = [];
+    for (let i = 0; i < 50; i++) {
+        nodes.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            dx: (Math.random() - 0.5) * 1.2,
+            dy: (Math.random() - 0.5) * 1.2
+        });
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        nodes.forEach(node => {
+            node.x += node.dx; node.y += node.dy;
+            if (node.x < 0 || node.x > canvas.width) node.dx *= -1;
+            if (node.y < 0 || node.y > canvas.height) node.dy *= -1;
+
+            ctx.beginPath();
+            ctx.arc(node.x, node.y, 2, 0, Math.PI * 2);
+            ctx.fillStyle = "#00e5ff";
+            ctx.fill();
+
+            nodes.forEach(other => {
+                let dist = Math.hypot(node.x - other.x, node.y - other.y);
+                if (dist < 150) {
+                    ctx.beginPath();
+                    ctx.strokeStyle = "rgba(0,229,255," + (1 - dist / 150) + ")";
+                    ctx.moveTo(node.x, node.y);
+                    ctx.lineTo(other.x, other.y);
+                    ctx.stroke();
+                }
+            });
+        });
+        requestAnimationFrame(draw);
+    }
+    draw();
+}
+document.addEventListener("DOMContentLoaded", initNetworkCanvas);

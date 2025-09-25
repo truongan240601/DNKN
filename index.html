@@ -142,7 +142,8 @@
         <section id="home" class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h1 class="hero-title">Giải pháp cho thuê kho bãi linh hoạt 1</h1>
+                    <canvas id="techNetwork"></canvas>
+                    <h1 class="hero-title">Giải pháp cho thuê kho bãi linh hoạt</h1>
                     <p class="hero-subtitle">An toàn – Hiệu quả</p>
                     <p class="hero-description">
                         <span class="hero-desc-main">Thành lập năm 2019, Công ty TNHH Doanh Nhân Khởi Nghiệp Việt Nam là
@@ -230,6 +231,18 @@
                             <div class="ecosystem-image fade-in">
                                 <img src="./images/HST.jpg" alt="Hệ sinh thái TCT Đối Tác Chân Thật"
                                     class="img-fluid rounded">
+                            </div>
+
+                            <!-- YouTube Video autoplay -->
+                            <div class="ecosystem-video mt-4 fade-in">
+                                <div class="video-container">
+                                    <iframe width="560" height="315"
+                                        src="https://www.youtube.com/embed/4MUhDeu7LtM?si=CSBB2YJnX7qAXC_-&autoplay=1&mute=1"
+                                        title="YouTube video player" frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                                    </iframe>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -361,8 +374,8 @@
             <!-- Section Header -->
             <div class="section-header-overlay">
                 <div class="container">
-                    <h2 class="section-title text-white">Dịch vụ chính của VSEC</h2>
-                    <p class="section-subtitle text-white">Dịch vụ cốt lõi và chuyên môn hàng đầu của chúng tôi</p>
+                    <h2 class="section-title">Dịch vụ chính của VSEC</h2>
+                    <p class="section-subtitle text-black">Dịch vụ cốt lõi và chuyên môn hàng đầu của chúng tôi</p>
                 </div>
             </div>
 
@@ -379,7 +392,7 @@
             <div class="service-info-panel left" id="service-info-left">
                 <div class="info-content">
                     <h3 class="info-title">Chọn một dịch vụ</h3>
-                    <p class="info-description">Hover vào các button để xem thông tin chi tiết</p>
+                    <p class="info-description"></p>
                 </div>
             </div>
 
@@ -400,12 +413,17 @@
 
             <!-- Interactive Service Buttons -->
             <div class="service-buttons-container">
+                <!-- Logo at center Video-->
+                <img src="./images/Logo.png" alt="VSEC Logo" class="mb-3 service-btn"
+                    style="top: 60%; left: 50%;height: 80px;z-index: 2">
+
+
                 <!-- Main Services (Red) -->
                 <button class="service-btn main-service" data-service="warehouse" style="top: 35%; left: 35%;">
                     <span class="btn-title main">Cho thuê kho hàng hóa</span>
                 </button>
 
-                <button class="service-btn main-service" data-service="yard" style="top: 35%; left: 70%;">
+                <button class="service-btn main-service" data-service="yard" style="top: 35%; left: 65%;">
                     <span class="btn-title main">Cho thuê bãi lưu hàng</span>
                 </button>
 
@@ -724,15 +742,14 @@
                                 </p>
 
                                 <div class="d-grid gap-3">
-                                    <a href="tel:+84888000999" class="btn btn-primary btn-lg">
+                                    <a href="tel:+0988782545" class="btn btn-primary btn-lg">
                                         <i class="fas fa-phone me-2"></i>Gọi ngay
                                     </a>
                                     <a href="mailto:info@doanhnhankhoinghiepvn.com"
                                         class="btn btn-outline-primary btn-lg">
                                         <i class="fas fa-envelope me-2"></i>Gửi email
                                     </a>
-                                    <a href="https://zalo.me/84888000999" target="_blank"
-                                        class="btn btn-success btn-lg">
+                                    <a href="https://zalo.me/0988782545" target="_blank" class="btn btn-success btn-lg">
                                         <i class="fab fa-zalo me-2"></i>Chat Zalo
                                     </a>
                                 </div>
@@ -751,7 +768,7 @@
     </div>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer id="contact" class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="row">
