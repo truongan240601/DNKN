@@ -1844,3 +1844,316 @@ body {
         font-size: 0.95rem;
     }
 }
+
+/* ===== INTERACTIVE VIDEO SERVICES SECTION ===== */
+.video-services-section {
+    position: relative;
+    height: 100vh;
+    min-height: 100vh;
+    overflow: hidden;
+    background: #000;
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    object-fit: cover;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 51, 102, 0.2);
+    z-index: 2;
+}
+
+/* Section Header Overlay */
+.section-header-overlay {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    z-index: 5;
+    text-align: center;
+}
+
+.section-header-overlay .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.section-header-overlay .section-subtitle {
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.service-info-panel {
+    position: absolute;
+    top: 20%;
+    transform: translateY(-50%);
+    width: 280px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    z-index: 3;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.service-info-panel.left {
+    left: 50px;
+}
+
+.service-info-panel.right {
+    right: 50px;
+}
+
+.service-info-panel .info-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.service-info-panel .info-description {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.service-info-panel ul {
+    list-style: none;
+    padding: 0;
+}
+
+.service-info-panel ul li {
+    font-size: 0.95rem;
+    color: var(--text-color);
+    margin-bottom: 0.8rem;
+    padding-left: 20px;
+    position: relative;
+}
+
+.service-info-panel ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--success-color);
+    font-weight: bold;
+}
+
+.service-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.service-stats .stat-item {
+    text-align: center;
+}
+
+.service-stats .stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.service-stats .stat-label {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.service-buttons-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+}
+
+.service-btn {
+    position: absolute;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    transform: translate(-50%, -50%);
+}
+
+.service-btn:focus {
+    outline: none;
+}
+
+.service-btn .btn-title {
+    display: block;
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--primary-color);
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Main Service Buttons (Red Border) */
+.service-btn.main-service .btn-title.main {
+    border: 3px solid #CC0000;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 15px 25px;
+    background: rgba(255, 255, 255, 0.98);
+    color: #CC0000;
+}
+
+.service-btn.main-service:hover .btn-title {
+    border-color: #CC0000;
+    box-shadow: 0 0 20px rgba(204, 0, 0, 0.6);
+    background: rgba(255, 255, 255, 1);
+    color: #CC0000;
+    transform: scale(1.05);
+}
+
+/* Support Service Buttons (Normal Border) */
+.service-btn.support-service .btn-title {
+    border: 2px solid #1A73E8;
+    color: #1A73E8;
+}
+
+.service-btn.support-service:hover .btn-title {
+    border-color: #1A73E8;
+    box-shadow: 0 0 15px rgba(26, 115, 232, 0.5);
+    background: rgba(255, 255, 255, 1);
+    color: #1A73E8;
+    transform: scale(1.03);
+}
+
+/* Responsive Video Services */
+@media (max-width: 1200px) {
+    .section-header-overlay .section-title {
+        font-size: 2.2rem;
+    }
+
+    .service-info-panel {
+        width: 250px;
+        padding: 1.5rem;
+    }
+
+    .service-info-panel.left {
+        left: 30px;
+    }
+
+    .service-info-panel.right {
+        right: 30px;
+    }
+
+    .service-btn .btn-title {
+        font-size: 0.9rem;
+        padding: 10px 18px;
+    }
+
+    .service-btn.main-service .btn-title.main {
+        font-size: 1rem;
+        padding: 12px 22px;
+    }
+}
+
+@media (max-width: 992px) {
+    .video-services-section {
+        height: 100vh;
+        min-height: 100vh;
+    }
+
+    .section-header-overlay .section-title {
+        font-size: 2rem;
+    }
+
+    .service-info-panel {
+        width: 220px;
+        padding: 1.25rem;
+    }
+
+    .service-info-panel.left {
+        left: 20px;
+    }
+
+    .service-info-panel.right {
+        right: 20px;
+    }
+
+    .service-btn .btn-title {
+        font-size: 0.85rem;
+        padding: 8px 15px;
+    }
+
+    .service-btn.main-service .btn-title.main {
+        font-size: 0.95rem;
+        padding: 10px 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .video-services-section {
+        height: 100vh;
+        min-height: 100vh;
+    }
+
+    .section-header-overlay {
+        top: 30px;
+    }
+
+    .section-header-overlay .section-title {
+        font-size: 1.8rem;
+    }
+
+    .section-header-overlay .section-subtitle {
+        font-size: 1rem;
+    }
+
+    .service-info-panel {
+        position: fixed;
+        top: auto;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        width: auto;
+        transform: none;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s ease;
+    }
+
+    .service-info-panel.show {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .service-btn .btn-title {
+        font-size: 0.8rem;
+        padding: 8px 12px;
+    }
+
+    .service-btn.main-service .btn-title.main {
+        font-size: 0.85rem;
+        padding: 10px 15px;
+    }
+}

@@ -596,6 +596,7 @@
             initScrollToTop();
             initScrollReveal();
             initScrollIndicator();
+            initVideoServices(); // Initialize interactive video services
 
             // Initialize essential features only (NO ANIMATIONS)
             try {
@@ -844,3 +845,237 @@ console.log(`
     'color: #CC0000;',
     'color: #28a745;'
 );
+
+/*==================== INTERACTIVE VIDEO SERVICES ====================*/
+function initVideoServices() {
+    const serviceButtons = document.querySelectorAll('.service-btn');
+    const leftPanel = document.getElementById('service-info-left');
+    const rightPanel = document.getElementById('service-info-right');
+
+    // Service data
+    const servicesData = {
+        warehouse: {
+            title: 'Cho thuê kho hàng hóa',
+            description: 'Giải pháp lưu trữ hàng hóa chuyên nghiệp và an toàn.',
+            features: [
+                'Kho xây dựng theo tiêu chuẩn công nghiệp hiện đại',
+                'Hệ thống PCCC tự động, camera an ninh giám sát 24/7',
+                'Đội ngũ bảo vệ chuyên nghiệp',
+                'Hỗ trợ lưu trữ theo pallet hoặc block',
+                'Tối ưu không gian và dễ dàng quản lý'
+            ],
+            stats: [
+                { number: '30,000+', label: 'm² kho tiêu chuẩn' },
+                { number: '24/7', label: 'Giám sát an ninh' }
+            ]
+        },
+        yard: {
+            title: 'Cho thuê bãi lưu hàng',
+            description: 'Bãi lưu trữ linh hoạt cho mọi loại hàng hóa.',
+            features: [
+                'Bãi ngoài trời hoặc có mái che',
+                'Phù hợp với nhiều loại hàng hóa',
+                'Diện tích linh hoạt theo nhu cầu',
+                'Kiểm soát ra vào chặt chẽ',
+                'Bãi lưu trữ container và trung chuyển'
+            ],
+            stats: [
+                { number: '20,000+', label: 'm² bãi lưu trữ' },
+                { number: '100%', label: 'Kiểm soát an toàn' }
+            ]
+        },
+        transport: {
+            title: 'Vận chuyển & Điều phối',
+            description: 'Dịch vụ vận chuyển và điều phối logistics toàn diện.',
+            features: [
+                'Mạng lưới vận chuyển rộng khắp',
+                'Điều phối logistics chuyên nghiệp',
+                'Theo dõi hàng hóa real-time',
+                'Tối ưu hóa tuyến đường và chi phí',
+                'Đảm bảo thời gian giao hàng'
+            ],
+            stats: [
+                { number: '500+', label: 'Tuyến vận chuyển' },
+                { number: '99%', label: 'Đúng hẹn giao hàng' }
+            ]
+        },
+        handling: {
+            title: 'Bốc xếp & Đóng gói',
+            description: 'Dịch vụ bốc xếp và đóng gói hàng hóa chuyên nghiệp.',
+            features: [
+                'Đội ngũ bốc xếp có kinh nghiệm',
+                'Thiết bị hiện đại và an toàn',
+                'Đóng gói theo tiêu chuẩn quốc tế',
+                'Bảo vệ hàng hóa tối đa',
+                'Quy trình chuẩn hóa'
+            ],
+            stats: [
+                { number: '50+', label: 'Nhân viên chuyên nghiệp' },
+                { number: '0%', label: 'Tỷ lệ hỏng hóc' }
+            ]
+        },
+        inventory: {
+            title: 'Quản lý tồn kho',
+            description: 'Hệ thống quản lý tồn kho thông minh và hiệu quả.',
+            features: [
+                'Hệ thống WMS hiện đại',
+                'Theo dõi tồn kho real-time',
+                'Báo cáo chi tiết và chính xác',
+                'Tối ưu hóa không gian lưu trữ',
+                'Cảnh báo tự động'
+            ],
+            stats: [
+                { number: '99.9%', label: 'Độ chính xác' },
+                { number: 'Real-time', label: 'Cập nhật tồn kho' }
+            ]
+        },
+        support: {
+            title: 'Hỗ trợ đa dạng',
+            description: 'Các dịch vụ hỗ trợ toàn diện khác.',
+            features: [
+                'Tư vấn giải pháp logistics',
+                'Hỗ trợ kỹ thuật chuyên sâu',
+                'Dịch vụ khách hàng 24/7',
+                'Giải pháp tùy chỉnh',
+                'Đào tạo và chuyển giao'
+            ],
+            stats: [
+                { number: '24/7', label: 'Hỗ trợ khách hàng' },
+                { number: '100%', label: 'Tùy chỉnh theo nhu cầu' }
+            ]
+        }
+    };
+
+    // Default content
+    const defaultLeftContent = {
+        title: 'Chọn một dịch vụ',
+        description: 'Hover vào các button để xem thông tin chi tiết'
+    };
+
+    const defaultRightContent = {
+        stats: [
+            { number: '50,000+', label: 'm² kho bãi' },
+            { number: '500+', label: 'Khách hàng' }
+        ]
+    };
+
+    // Update panel content
+    function updatePanelContent(service) {
+        if (!service || !servicesData[service]) return;
+
+        const data = servicesData[service];
+
+        // Update left panel
+        leftPanel.innerHTML = `
+            <div class="info-content">
+                <h3 class="info-title">${data.title}</h3>
+                <p class="info-description">${data.description}</p>
+                <ul>
+                    ${data.features.map(feature => `<li>${feature}</li>`).join('')}
+                </ul>
+            </div>
+        `;
+
+        // Update right panel  
+        rightPanel.innerHTML = `
+            <div class="info-content">
+                <div class="service-stats">
+                    ${data.stats.map(stat => `
+                        <div class="stat-item">
+                            <span class="stat-number">${stat.number}</span>
+                            <span class="stat-label">${stat.label}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+
+        // Add show class for mobile
+        leftPanel.classList.add('show');
+        rightPanel.classList.add('show');
+    }
+
+    // Reset to default content
+    function resetPanelContent() {
+        leftPanel.innerHTML = `
+            <div class="info-content">
+                <h3 class="info-title">${defaultLeftContent.title}</h3>
+                <p class="info-description">${defaultLeftContent.description}</p>
+            </div>
+        `;
+
+        rightPanel.innerHTML = `
+            <div class="info-content">
+                <div class="service-stats">
+                    ${defaultRightContent.stats.map(stat => `
+                        <div class="stat-item">
+                            <span class="stat-number">${stat.number}</span>
+                            <span class="stat-label">${stat.label}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+
+        // Remove show class for mobile
+        leftPanel.classList.remove('show');
+        rightPanel.classList.remove('show');
+    }
+
+    // Add event listeners
+    serviceButtons.forEach(button => {
+        button.addEventListener('mouseenter', () => {
+            const service = button.getAttribute('data-service');
+            updatePanelContent(service);
+        });
+
+        button.addEventListener('mouseleave', () => {
+            resetPanelContent();
+        });
+
+        // Mobile touch events
+        button.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            const service = button.getAttribute('data-service');
+            updatePanelContent(service);
+        });
+    });
+
+    // Close panels when clicking outside on mobile
+    document.addEventListener('touchstart', (e) => {
+        if (window.innerWidth <= 768) {
+            const isButton = e.target.closest('.service-btn');
+            const isPanel = e.target.closest('.service-info-panel');
+
+            if (!isButton && !isPanel) {
+                resetPanelContent();
+            }
+        }
+    });
+
+    // Handle video loading
+    const video = document.querySelector('.video-background');
+    if (video) {
+        video.addEventListener('loadstart', () => {
+            console.log('Video loading started...');
+        });
+
+        video.addEventListener('canplay', () => {
+            console.log('Video can start playing');
+        });
+
+        video.addEventListener('error', (e) => {
+            console.error('Video loading error:', e);
+            // Fallback: show a background image or color
+            const section = document.querySelector('.video-services-section');
+            if (section) {
+                section.style.background = 'linear-gradient(135deg, #003366 0%, #1A73E8 100%)';
+            }
+        });
+    }
+}
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', function () {
+    initVideoServices();
+});

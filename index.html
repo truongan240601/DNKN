@@ -113,15 +113,8 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#about">Giới thiệu</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#services" id="servicesDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Dịch vụ
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-                                <li><a class="dropdown-item" href="#services">Dịch vụ chính</a></li>
-                                <li><a class="dropdown-item" href="#support-services">Dịch vụ hỗ trợ</a></li>
-                            </ul>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#services">Dịch vụ</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#advantages">Lợi thế</a>
@@ -149,7 +142,7 @@
         <section id="home" class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h1 class="hero-title">Giải pháp cho thuê kho bãi linh hoạt</h1>
+                    <h1 class="hero-title">Giải pháp cho thuê kho bãi linh hoạt 1</h1>
                     <p class="hero-subtitle">An toàn – Hiệu quả</p>
                     <p class="hero-description">
                         <span class="hero-desc-main">Thành lập năm 2019, Công ty TNHH Doanh Nhân Khởi Nghiệp Việt Nam là
@@ -363,121 +356,77 @@
             </div>
         </section>
 
-        <!-- Main Services Section -->
-        <section id="services" class="section section-bg">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title fade-in">Dịch vụ chính của VSEC</h2>
-                    <p class="section-subtitle fade-in">
-                        Dịch vụ cốt lõi và chuyên môn hàng đầu của chúng tôi
-                    </p>
+        <!-- Interactive Video Services Section -->
+        <section id="services" class="video-services-section">
+            <!-- Section Header -->
+            <div class="section-header-overlay">
+                <div class="container">
+                    <h2 class="section-title text-white">Dịch vụ chính của VSEC</h2>
+                    <p class="section-subtitle text-white">Dịch vụ cốt lõi và chuyên môn hàng đầu của chúng tôi</p>
                 </div>
+            </div>
 
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 mb-4">
-                        <div class="service-card fade-in">
-                            <div class="service-icon">
-                                <i class="fas fa-warehouse"></i>
-                            </div>
-                            <h3 class="service-title">Cho thuê kho hàng hóa</h3>
-                            <div class="service-description">
-                                <ul>
-                                    <li>Kho xây dựng theo tiêu chuẩn công nghiệp hiện đại.</li>
-                                    <li>Hệ thống PCCC tự động, camera an ninh giám sát 24/7 và đội ngũ bảo vệ chuyên
-                                        nghiệp.</li>
-                                    <li>Hỗ trợ lưu trữ hàng hóa theo pallet hoặc block, tối ưu không gian và dễ dàng
-                                        quản lý.</li>
-                                </ul>
-                            </div>
+            <!-- Background Video -->
+            <video class="video-background" autoplay muted loop playsinline>
+                <source src="./ClipDichVu.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            <!-- Video Overlay -->
+            <div class="video-overlay"></div>
+
+            <!-- Service Info Panels -->
+            <div class="service-info-panel left" id="service-info-left">
+                <div class="info-content">
+                    <h3 class="info-title">Chọn một dịch vụ</h3>
+                    <p class="info-description">Hover vào các button để xem thông tin chi tiết</p>
+                </div>
+            </div>
+
+            <div class="service-info-panel right" id="service-info-right">
+                <div class="info-content">
+                    <div class="service-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">50,000+</span>
+                            <span class="stat-label">m² kho bãi</span>
                         </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6 mb-4">
-                        <div class="service-card fade-in">
-                            <div class="service-icon">
-                                <i class="fas fa-truck-loading"></i>
-                            </div>
-                            <h3 class="service-title">Cho thuê bãi lưu hàng</h3>
-                            <div class="service-description">
-                                <ul>
-                                    <li>Bãi ngoài trời hoặc có mái che, phù hợp với nhiều loại hàng hóa.</li>
-                                    <li>Diện tích linh hoạt, có kiểm soát ra vào chặt chẽ.</li>
-                                    <li>Cung cấp bãi lưu trữ container và bãi trung chuyển hàng hóa, đáp ứng mọi nhu cầu
-                                        logistics.</li>
-                                </ul>
-                            </div>
+                        <div class="stat-item">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Khách hàng</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- Support Services Section -->
-        <section id="support-services" class="section">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title fade-in">Dịch vụ hỗ trợ đi kèm</h2>
-                    <p class="section-subtitle fade-in">
-                        Dịch vụ bổ trợ toàn diện để tối ưu hóa chuỗi cung ứng của bạn
-                    </p>
-                </div>
+            <!-- Interactive Service Buttons -->
+            <div class="service-buttons-container">
+                <!-- Main Services (Red) -->
+                <button class="service-btn main-service" data-service="warehouse" style="top: 35%; left: 35%;">
+                    <span class="btn-title main">Cho thuê kho hàng hóa</span>
+                </button>
 
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 mb-4">
-                        <div class="service-card fade-in">
-                            <div class="service-icon">
-                                <i class="fas fa-shipping-fast"></i>
-                            </div>
-                            <h3 class="service-title">Vận chuyển & Điều phối</h3>
-                            <p class="service-description">
-                                Dịch vụ vận chuyển và điều phối hàng hóa chuyên nghiệp, đảm bảo giao nhận đúng giờ và an
-                                toàn.
-                            </p>
-                        </div>
-                    </div>
+                <button class="service-btn main-service" data-service="yard" style="top: 35%; left: 70%;">
+                    <span class="btn-title main">Cho thuê bãi lưu hàng</span>
+                </button>
 
-                    <div class="col-lg-6 col-md-6 mb-4">
-                        <div class="service-card fade-in">
-                            <div class="service-icon">
-                                <i class="fas fa-boxes"></i>
-                            </div>
-                            <h3 class="service-title">Bốc xếp & Đóng gói</h3>
-                            <p class="service-description">
-                                Đội ngũ nhân viên bốc xếp, đóng gói và dán nhãn chuyên nghiệp, đảm bảo hàng hóa được xử
-                                lý cẩn thận.
-                            </p>
-                        </div>
-                    </div>
+                <!-- Support Services (Blue) -->
+                <button class="service-btn support-service" data-service="transport" style="top: 25%; left: 50%;">
+                    <span class="btn-title">Vận chuyển & Điều phối</span>
+                </button>
 
-                    <div class="col-lg-6 col-md-6 mb-4">
-                        <div class="service-card fade-in">
-                            <div class="service-icon">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <h3 class="service-title">Quản lý tồn kho</h3>
-                            <p class="service-description">
-                                Phần mềm quản lý tồn kho hiện đại, giúp khách hàng theo dõi và kiểm soát hàng hóa hiệu
-                                quả.
-                            </p>
-                        </div>
-                    </div>
+                <button class="service-btn support-service" data-service="handling" style="top: 65%; left: 30%;">
+                    <span class="btn-title">Bốc xếp & Đóng gói</span>
+                </button>
 
-                    <div class="col-lg-6 col-md-6 mb-4">
-                        <div class="service-card fade-in">
-                            <div class="service-icon">
-                                <i class="fas fa-handshake"></i>
-                            </div>
-                            <h3 class="service-title">Hỗ trợ đa dạng</h3>
-                            <p class="service-description">
-                                Hỗ trợ giám định, bảo hiểm hàng hóa và thủ tục xuất nhập khẩu linh hoạt, minh bạch.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                <button class="service-btn support-service" data-service="inventory" style="top: 75%; left: 50%;">
+                    <span class="btn-title">Quản lý tồn kho</span>
+                </button>
+
+                <button class="service-btn support-service" data-service="support" style="top: 65%; left: 70%;">
+                    <span class="btn-title">Hỗ trợ đa dạng</span>
+                </button>
             </div>
-        </section>
-
-        <!-- Advantages Section -->
+        </section> <!-- Advantages Section -->
         <section id="advantages" class="section">
             <div class="container">
                 <div class="section-header">
